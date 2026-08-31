@@ -1,8 +1,18 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "io.github.netroz82_bit.twa",
-        "sha256_cert_fingerprints": ["82:26:47:8D:18:62:7C:D0:24:F5:98:2D:C1:D5:EE:28:38:36:FA:E1:6D:C4:F4:C6:56:85:58:6D:26:A9:2D:E8"]
-      }
-    }]
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.netroz_bit.twa",
+      "sha256_cert_fingerprints": ["D8:00:AD:19:40:E2:6F:59:2D:E3:E9:FE:84:1F:A0:F4:F5:04:C6:42:6E:02:25:76:B8:63:CB:0F:46:AE:34:A2"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.netroz82_bit.twa",
+      "sha256_cert_fingerprints": ["48:30:87:25:00:5F:FB:2B:3A:D2:ED:E3:3E:01:AF:9D:2C:85:BD:3B:73:1C:30:AB:BA:AB:30:94:D0:6B:AF:3E"]
+    }
+  }
+]
