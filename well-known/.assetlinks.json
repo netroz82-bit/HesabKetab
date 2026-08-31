@@ -1,8 +1,0 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "io.github.netroz82_bit.twa",
-        "sha256_cert_fingerprints": ["BA:62:7D:0B:BA:51:35:56:0A:A5:B1:8B:D1:B8:35:54:C0:2C:0B:E3:B1:13:82:37:41:4C:9F:10:01:50:E0:6E"]
-      }
-    }]
