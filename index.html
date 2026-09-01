@@ -44,7 +44,56 @@ body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:var(--bg);color:#
 .card h3{margin-bottom:12px;font-size:.98rem;color:#0f172a;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:11px 12px;display:flex;gap:10px;align-items:center}
-.st-ic{font-size:1.15rem;background:#eff6ff;border-radius:11px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex:none}
+.st-ic{font-size:1.15rem;border-radius:11px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex:none}
+.tint-blue{background:#eff6ff;color:#1e293b}
+.tint-green{background:#dcfce7;color:#1e293b}
+.tint-amber{background:#fef3c7;color:#1e293b}
+.tint-cyan{background:#e0f2fe;color:#1e293b}
+.tint-red{background:#fee2e2;color:#1e293b}
+.tint-purple{background:#f3e8ff;color:#1e293b}
+.tint-orange{background:#ffedd5;color:#1e293b}
+.tint-mint{background:#ecfdf5;color:#1e293b}
+[data-theme="dark"] .tint-blue{background:#132a4d;color:#60a5fa}
+[data-theme="dark"] .tint-green{background:#0f2e1c;color:#4ade80}
+[data-theme="dark"] .tint-amber{background:#3a2a0c;color:#fbbf24}
+[data-theme="dark"] .tint-cyan{background:#0c3547;color:#38bdf8}
+[data-theme="dark"] .tint-red{background:#3a1416;color:#f87171}
+[data-theme="dark"] .tint-purple{background:#2c1f4d;color:#c4b5fd}
+[data-theme="dark"] .tint-orange{background:#3a220c;color:#fb923c}
+[data-theme="dark"] .tint-mint{background:#0d3327;color:#34d399}
+.tfoot-total{background:#f8fafc;font-weight:800}
+[data-theme="dark"] .tfoot-total{background:#182036!important}
+.stat.clickable{cursor:pointer;transition:transform .1s}
+.stat.clickable:active{transform:scale(.98)}
+.inv-line{display:flex;align-items:center;gap:8px;padding:11px 6px;border-bottom:1px solid var(--line);cursor:pointer}
+.inv-line:last-child{border-bottom:0}
+.inv-line:active{background:#f1f5f9}
+.il-badge{font-size:.66rem;font-weight:700;padding:3px 7px;border-radius:999px;flex:none}
+.il-blue{background:#dbeafe;color:#1e40af}
+.il-amber{background:#fef3c7;color:#92400e}
+.il-num{color:var(--gray);font-size:.76rem;flex:none}
+.il-party{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:.86rem}
+.il-date{color:var(--gray);font-size:.72rem;flex:none;display:none}
+.il-amt{font-weight:800;font-size:.84rem;flex:none}
+.il-dot{width:9px;height:9px;border-radius:50%;flex:none}
+.il-dot.green{background:var(--green)}
+.il-dot.amber{background:var(--amber)}
+@media(min-width:480px){ .il-date{display:inline} }
+[data-theme="dark"] .inv-line{border-bottom-color:#22314a}
+[data-theme="dark"] .inv-line:active{background:#182036}
+[data-theme="dark"] .il-blue{background:#132a4d;color:#93c5fd}
+[data-theme="dark"] .il-amber{background:#3a2a0c;color:#fcd34d}
+.st-v-pos{color:#15803d}
+[data-theme="dark"] .st-v-pos{color:#4ade80}
+.jr-doc-link{color:var(--primary);font-weight:700;text-decoration:none}
+.jr-doc-link:active{text-decoration:underline}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;flex:none}
+.seg-btn{border:0;background:var(--card);color:var(--gray);font-size:.8rem;font-weight:700;padding:8px 14px;cursor:pointer}
+.seg-btn.active{background:var(--primary);color:#fff}
+.inv-line-list{border:1px solid var(--line);border-radius:11px;overflow:hidden}
+[data-theme="dark"] .seg{border-color:#334155}
+[data-theme="dark"] .seg-btn{background:#141b2b;color:#94a3b8}
+[data-theme="dark"] .inv-line-list{border-color:#263349}
 .ic{width:1.15em;height:1.15em;vertical-align:-0.18em;flex:none;display:inline-block}
 .st-ic .ic{width:24px;height:24px}
 .bnav-item span .ic,.brand .logo .ic{width:1.4rem;height:1.4rem}
@@ -285,7 +334,7 @@ canvas{width:100%;display:block}
       <button class="nav-item" data-tab="purchase" onclick="showTab('purchase')"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h5l2 3h4l2-3h5"/><path d="M5 4h14l2 8v7H3v-7l2-8z"/></svg> فاکتور خرید</button>
       <button class="nav-item" data-tab="invoices" onclick="showTab('invoices')"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 012-2h5l2 2h7a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V6z"/></svg> فاکتورها</button>
       <button class="nav-item" data-tab="cash" onclick="showTab('cash')"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 9h.01M18 15h.01"/></svg> صندوق</button>
-      <button class="nav-item" data-tab="journal" onclick="showTab('journal')"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 016.5 2H19v17H6.5A2.5 2.5 0 004 21.5v-17z"/><path d="M4 19a2.5 2.5 0 012.5-2.5H19"/></svg> دفتر روزنامه</button>
+      <button class="nav-item" data-tab="journal" onclick="showTab('journal')"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 016.5 2H19v17H6.5A2.5 2.5 0 004 21.5v-17z"/><path d="M4 19a2.5 2.5 0 012.5-2.5H19"/></svg> اسناد حسابداری</button>
       <button class="nav-item" data-tab="reports" onclick="showTab('reports')"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="4" height="8" rx="1"/><rect x="10" y="6" width="4" height="14" rx="1"/><rect x="16" y="9" width="4" height="11" rx="1"/></svg> گزارش‌ها</button>
     </nav>
     <button class="btn btn-sm no-print" onclick="settingsModal()" title="تنظیمات" style="background:rgba(255,255,255,.12);border-color:transparent;color:#fff;margin-inline-start:auto"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 005 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 5c.35 0 .68-.1 1-.25V4a2 2 0 014 0v.09c.32.15.65.25 1 .25a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06c-.32.32-.5.75-.5 1.19V9c0 .35.1.68.25 1H21a2 2 0 010 4h-.09c-.32 0-.65.1-.51 1z"/></svg></button>
@@ -400,6 +449,10 @@ canvas{width:100%;display:block}
             <option value="">همه فاکتورها</option><option value="sale">فروش</option><option value="purchase">خرید</option>
           </select>
           <input class="search grow" id="invSearch" placeholder="جستجوی شماره یا طرف حساب…" oninput="renderInvoices()">
+          <div class="seg" id="invViewSeg">
+            <button type="button" class="seg-btn active" data-mode="compact" onclick="setInvView('compact')">خلاصه</button>
+            <button type="button" class="seg-btn" data-mode="detailed" onclick="setInvView('detailed')">جزئیات</button>
+          </div>
         </div>
         <div class="tbl-wrap"><div id="invoicesTable"></div></div>
       </div>
@@ -428,9 +481,10 @@ canvas{width:100%;display:block}
       <div class="card"><h3>گردش صندوق</h3><div class="tbl-wrap"><div id="cashTable"></div></div></div>
     </section>
 
-    <!-- ======= دفتر روزنامه ======= -->
+    <!-- ======= اسناد حسابداری ======= -->
     <section id="tab-journal" class="tabpane">
-      <div class="page-head"><h1><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 016.5 2H19v17H6.5A2.5 2.5 0 004 21.5v-17z"/><path d="M4 19a2.5 2.5 0 012.5-2.5H19"/></svg> دفتر روزنامه (سیستم دوطرفه)</h1></div>
+      <div class="page-head"><h1><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 016.5 2H19v17H6.5A2.5 2.5 0 004 21.5v-17z"/><path d="M4 19a2.5 2.5 0 012.5-2.5H19"/></svg> اسناد حسابداری (دفتر روزنامه)</h1></div>
+      <div id="journalStats" class="cards-grid" style="margin-bottom:14px"></div>
       <div class="card">
         <div class="toolbar">
           <label style="flex-direction:row;align-items:center;gap:6px">از تاریخ <input id="jrFrom" style="width:120px" placeholder="۱۴۰۵/۰۱/۰۱" oninput="formatDateInput(this)"></label>
@@ -785,7 +839,7 @@ function moreSheet(){
     '<div id="moreList"></div>');
   const items = [
     [''+icon('box')+'','کالا و انبار','products'],[''+icon('users')+'','طرف حساب‌ها','parties'],[''+icon('cash')+'','صندوق','cash'],
-    [''+icon('book')+'','دفتر روزنامه','journal'],[''+icon('chart')+'','گزارش‌ها','reports']
+    [''+icon('book')+'','اسناد حسابداری','journal'],[''+icon('chart')+'','گزارش‌ها','reports']
   ];
   $('#moreList').innerHTML = items.map(i=>
     '<button class="more-item" onclick="showTab(\''+i[2]+'\')">'+i[0]+' <span>'+i[1]+'</span></button>').join('')+
@@ -873,9 +927,9 @@ function renderCash(){
   const opts = t==='in' ? state.parties.filter(p=>p.type!=='supplier') : state.parties.filter(p=>p.type!=='customer');
   $('#cashParty').innerHTML = '<option value="">— در صورت نیاز —</option>' + opts.map(p=>'<option value="'+p.id+'">'+esc(p.name)+'</option>').join('');
   $('#cashStats').innerHTML =
-    '<div class="stat"><div class="st-ic" style="background:#dcfce7">'+icon('cash')+'</div><div><div class="st-l">مانده صندوق</div><div class="st-v" style="color:#15803d">'+rial(cashBalance())+'</div></div></div>'+
-    '<div class="stat"><div class="st-ic" style="background:#fee2e2">'+icon('inbox')+'</div><div><div class="st-l">کل دریافت‌ها</div><div class="st-v">'+rial(cashTotal('in'))+'</div></div></div>'+
-    '<div class="stat"><div class="st-ic" style="background:#dbeafe">'+icon('upload')+'</div><div><div class="st-l">کل پرداخت‌ها</div><div class="st-v">'+rial(cashTotal('out'))+'</div></div></div>';
+    '<div class="stat"><div class="st-ic tint-green">'+icon('cash')+'</div><div><div class="st-l">مانده صندوق</div><div class="st-v st-v-pos">'+rial(cashBalance())+'</div></div></div>'+
+    '<div class="stat"><div class="st-ic tint-red">'+icon('inbox')+'</div><div><div class="st-l">کل دریافت‌ها</div><div class="st-v">'+rial(cashTotal('in'))+'</div></div></div>'+
+    '<div class="stat"><div class="st-ic tint-blue">'+icon('upload')+'</div><div><div class="st-l">کل پرداخت‌ها</div><div class="st-v">'+rial(cashTotal('out'))+'</div></div></div>';
   const rows = state.cash.slice().sort((a,b)=>b.id-a.id).map(c=>
     '<tr><td data-label="شماره">'+faDig(c.id)+'</td><td data-label="تاریخ">'+faDate(c.date)+'</td><td data-label="نوع">'+(c.type==='in'?'<span class="badge badge-green">دریافت</span>':'<span class="badge badge-red">پرداخت</span>')+'</td><td data-label="دسته">'+esc(c.cat)+'</td><td data-label="طرف حساب">'+esc(partyName(c.partyId))+'</td><td class="'+(c.type==='in'?'debit':'credit')+'" data-label="مبلغ">'+(c.type==='in'?'+':'-')+fmt(c.amount)+'</td><td data-label="شرح">'+esc(c.desc||'—')+'</td><td data-label="عملیات"><button class="btn btn-sm btn-red btn-icon" onclick="deleteCash('+c.id+')">'+icon('x')+'</button></td></tr>').join('');
   $('#cashTable').innerHTML = state.cash.length
@@ -1186,10 +1240,22 @@ function resetInvoiceForm(type){
   calcInvoiceTotals(type);
 }
 /* ---------- فهرست فاکتورها ---------- */
+let invViewMode = 'compact';
+function setInvView(mode){
+  invViewMode = mode;
+  document.querySelectorAll('#invViewSeg .seg-btn').forEach(b=> b.classList.toggle('active', b.dataset.mode===mode));
+  renderInvoices();
+}
 function renderInvoices(){
   const f = $('#invTypeFilter').value, q = ($('#invSearch').value||'').trim();
   const list = state.invoices.filter(i=>(!f || i.type===f) && (!q || String(i.id).includes(q) || partyName(i.partyId).includes(q)));
-  const rows = list.slice().sort((a,b)=>b.id-a.id).map(i=>{
+  const sorted = list.slice().sort((a,b)=>b.id-a.id);
+  if(!sorted.length){ $('#invoicesTable').innerHTML = '<div class="empty">فاکتوری ثبت نشده است</div>'; return; }
+  if(invViewMode==='compact'){
+    $('#invoicesTable').innerHTML = '<div class="inv-line-list">'+sorted.map(invoiceLineHtml).join('')+'</div>';
+    return;
+  }
+  const rows = sorted.map(i=>{
     const unpaid = i.total - i.paid;
     return '<tr><td data-label="شماره">'+faDig(i.id)+'</td><td data-label="نوع">'+(i.type==='sale'?'<span class="badge badge-blue">فروش</span>':'<span class="badge badge-amber">خرید</span>')+
       '</td><td data-label="تاریخ">'+faDate(i.date)+'</td><td data-label="طرف حساب">'+esc(partyName(i.partyId))+'</td><td data-label="مبلغ کل">'+rial(i.total)+'</td><td data-label="پرداخت‌شده">'+rial(i.paid)+
@@ -1199,16 +1265,20 @@ function renderInvoices(){
       (unpaid>0?' <button class="btn btn-sm btn-green" onclick="settleInvoice('+i.id+')">'+icon('money')+' تسویه</button>':'')+
       ' <button class="btn btn-sm btn-red" onclick="deleteInvoice('+i.id+')">'+icon('trash')+'</button></td></tr>';
   }).join('');
-  $('#invoicesTable').innerHTML = list.length
-    ? '<table class="data"><thead><tr><th>شماره</th><th>نوع</th><th>تاریخ</th><th>طرف حساب</th><th>مبلغ کل</th><th>پرداخت‌شده</th><th>مانده</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody>'+rows+'</tbody></table>'
-    : '<div class="empty">فاکتوری ثبت نشده است</div>';
+  $('#invoicesTable').innerHTML = '<table class="data"><thead><tr><th>شماره</th><th>نوع</th><th>تاریخ</th><th>طرف حساب</th><th>مبلغ کل</th><th>پرداخت‌شده</th><th>مانده</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
 function viewInvoice(id){
   const inv = state.invoices.find(i=>i.id==id);
   if(!inv) return;
+  const unpaid = inv.total - inv.paid;
   openModal('<div class="modal-head"><h2>فاکتور شماره '+faDig(id)+'</h2><button class="btn btn-icon" onclick="closeModal()">'+icon('x')+'</button></div>'+
     '<div id="viewDoc">'+invDocHtml(inv)+'</div>'+
-    '<div class="modal-actions"><button class="btn btn-primary" onclick="printDoc(\'viewDoc\')">'+icon('printer')+' چاپ / PDF</button><button class="btn" onclick="closeModal()">بستن</button></div>');
+    '<div class="modal-actions">'+
+    '<button class="btn btn-primary" onclick="printDoc(\'viewDoc\')">'+icon('printer')+' چاپ / PDF</button>'+
+    '<button class="btn" onclick="closeModal();editInvoice('+id+')">'+icon('edit')+' ویرایش</button>'+
+    (unpaid>0?'<button class="btn btn-green" onclick="closeModal();settleInvoice('+id+')">'+icon('money')+' تسویه</button>':'')+
+    '<button class="btn btn-red" onclick="closeModal();deleteInvoice('+id+')">'+icon('trash')+' حذف</button>'+
+    '<button class="btn" onclick="closeModal()">بستن</button></div>');
 }
 function settleInvoice(id){
   const inv = state.invoices.find(i=>i.id==id);
@@ -1253,6 +1323,12 @@ function inRange(date, from, to){
   if(to && date > to) return false;
   return true;
 }
+function journalDocInvoiceId(doc){
+  const m = String(doc).match(/^(\d+)(\/ت)?$/);
+  if(!m) return null;
+  const id = Number(m[1]);
+  return state.invoices.some(i=>i.id===id) ? id : null;
+}
 function renderJournal(){
   const from = $('#jrFrom').value ? faEn($('#jrFrom').value) : '';
   const to = $('#jrTo').value ? faEn($('#jrTo').value) : '';
@@ -1260,15 +1336,25 @@ function renderJournal(){
   let rows = state.journal.filter(e=>inRange(e.date, from, to) &&
     (!jq || String(e.doc).includes(jq) || (e.desc||'').includes(jq) || (e.docType||'').includes(jq))
   ).sort((a,b)=>a.id-b.id);
-  const head = '<tr><th>ردیف</th><th>سند</th><th>تاریخ</th><th>شرح</th><th>کد حساب</th><th>نام حساب</th><th>بدهکار</th><th>بستانکار</th></tr>';
-  const body = rows.map((e,i)=>
-    '<tr><td class="muted" data-label="ردیف">'+faDig(i+1)+'</td><td data-label="سند">'+faDig(e.doc)+'</td><td data-label="تاریخ">'+faDate(e.date)+'</td><td data-label="شرح">'+esc((e.docType||'')+(e.desc?' — '+e.desc:''))+'</td><td data-label="کد حساب">'+esc(e.acc)+'</td><td data-label="نام حساب">'+esc(ACCOUNTS[e.acc]||e.acc)+'</td><td class="debit" data-label="بدهکار">'+(e.kind==='debit'?fmt(e.amount):'')+'</td><td class="credit" data-label="بستانکار">'+(e.kind==='credit'?fmt(e.amount):'')+'</td></tr>'
-  ).join('');
   const t = totalsOf(rows);
   const ok = t.db === t.cr;
+  const docCount = new Set(rows.map(e=>e.doc)).size;
+  $('#journalStats').innerHTML =
+    '<div class="stat"><div class="st-ic tint-blue">'+icon('file')+'</div><div><div class="st-l">تعداد اسناد</div><div class="st-v">'+faDig(docCount)+'</div></div></div>'+
+    '<div class="stat"><div class="st-ic tint-green">'+icon('arrowDown')+'</div><div><div class="st-l">جمع بدهکار</div><div class="st-v">'+fmt(t.db)+'</div></div></div>'+
+    '<div class="stat"><div class="st-ic tint-red">'+icon('arrowUp')+'</div><div><div class="st-l">جمع بستانکار</div><div class="st-v">'+fmt(t.cr)+'</div></div></div>'+
+    '<div class="stat"><div class="st-ic '+(ok?'tint-mint':'tint-orange')+'">'+icon(ok?'checkCircle':'alert')+'</div><div><div class="st-l">وضعیت تراز</div><div class="st-v" style="font-size:.82rem">'+(ok?'متعادل':'ناترازی!')+'</div></div></div>';
+  const head = '<tr><th>ردیف</th><th>سند</th><th>تاریخ</th><th>شرح</th><th>کد حساب</th><th>نام حساب</th><th>بدهکار</th><th>بستانکار</th></tr>';
+  const body = rows.map((e,i)=>{
+    const invId = journalDocInvoiceId(e.doc);
+    const docCell = invId!=null
+      ? '<a href="javascript:void(0)" class="jr-doc-link" onclick="viewInvoice('+invId+')">'+faDig(e.doc)+'</a>'
+      : faDig(e.doc);
+    return '<tr><td class="muted" data-label="ردیف">'+faDig(i+1)+'</td><td data-label="سند">'+docCell+'</td><td data-label="تاریخ">'+faDate(e.date)+'</td><td data-label="شرح">'+esc((e.docType||'')+(e.desc?' — '+e.desc:''))+'</td><td data-label="کد حساب">'+esc(e.acc)+'</td><td data-label="نام حساب">'+esc(ACCOUNTS[e.acc]||e.acc)+'</td><td class="debit" data-label="بدهکار">'+(e.kind==='debit'?fmt(e.amount):'')+'</td><td class="credit" data-label="بستانکار">'+(e.kind==='credit'?fmt(e.amount):'')+'</td></tr>';
+  }).join('');
   $('#journalTable').innerHTML = rows.length
     ? '<table class="data"><thead>'+head+'</thead><tbody>'+body+'</tbody><tfoot>'+
-      '<tr style="background:#f8fafc;font-weight:800"><td colspan="6">جمع کل ('+faDig(rows.length)+' ردیف)</td><td class="debit" data-label="بدهکار">'+fmt(t.db)+'</td><td class="credit" data-label="بستانکار">'+fmt(t.cr)+'</td></tr>'+
+      '<tr class="tfoot-total"><td colspan="6">جمع کل ('+faDig(rows.length)+' ردیف)</td><td class="debit" data-label="بدهکار">'+fmt(t.db)+'</td><td class="credit" data-label="بستانکار">'+fmt(t.cr)+'</td></tr>'+
       '</tfoot></table>'+
       '<div style="margin-top:8px">'+(ok
         ? '<span class="badge badge-green">'+icon('check')+' اصل دوطرفه متعادل است (بدهکار = بستانکار)</span>'
@@ -1389,7 +1475,7 @@ function renderReports(){
     });
     html = '<h3>'+icon('balance')+' تراز آزمایشی'+rangeTxt+'</h3>'+
       '<table class="data"><thead><tr><th>حساب</th><th>بدهکار</th><th>بستانکار</th></tr></thead><tbody>'+rows+'</tbody><tfoot>'+
-      '<tr style="background:#f8fafc;font-weight:800"><td data-label="حساب">جمع</td><td class="debit" data-label="بدهکار">'+fmt(tdb)+'</td><td class="credit" data-label="بستانکار">'+fmt(tcr)+'</td></tr></tfoot></table>'+
+      '<tr class="tfoot-total"><td data-label="حساب">جمع</td><td class="debit" data-label="بدهکار">'+fmt(tdb)+'</td><td class="credit" data-label="بستانکار">'+fmt(tcr)+'</td></tr></tfoot></table>'+
       '<div style="margin-top:8px">'+(tdb===tcr?'<span class="badge badge-green">'+icon('check')+' تراز متعادل است</span>':'<span class="badge badge-red">'+icon('x')+' ناترازی به مبلغ '+rial(Math.abs(tdb-tcr))+'</span>')+'</div>';
     chartLabels=['بدهکار','بستانکار']; chartVals=[tdb,tcr]; chartColor='#2563eb';
     if(!rows) html += '<div class="empty">سندی در این بازه ثبت نشده است</div>';
@@ -1402,7 +1488,7 @@ function renderReports(){
     const tot = keys.reduce((a,k)=>a+map[k],0);
     html = '<h3>'+icon('trendUp')+' فروش دوره‌ای'+rangeTxt+'</h3>'+
       (keys.length
-        ? '<table class="data"><thead><tr><th>ماه</th><th>فروش (ریال)</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr style="background:#f8fafc;font-weight:800"><td data-label="ماه">جمع</td><td data-label="فروش (ریال)">'+rial(tot)+'</td></tr></tfoot></table>'
+        ? '<table class="data"><thead><tr><th>ماه</th><th>فروش (ریال)</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr class="tfoot-total"><td data-label="ماه">جمع</td><td data-label="فروش (ریال)">'+rial(tot)+'</td></tr></tfoot></table>'
         : '<div class="empty">فروشی در این بازه ثبت نشده است</div>');
     chartLabels=keys; chartVals=keys.map(k=>map[k]); chartColor='#2563eb';
   }
@@ -1431,7 +1517,7 @@ function renderReports(){
     html = '<h3>'+icon('box')+' ارزش کالا و انبار</h3>'+
       (state.products.length
         ? '<table class="data"><thead><tr><th>کالا</th><th>موجودی</th><th>قیمت خرید</th><th>ارزش موجودی</th><th>وضعیت</th></tr></thead><tbody>'+rows+'</tbody><tfoot>'+
-          '<tr style="background:#f8fafc;font-weight:800"><td colspan="3">کل ارزش انبار</td><td data-label="ارزش موجودی">'+rial(val)+'</td><td></td></tr></tfoot></table>'
+          '<tr class="tfoot-total"><td colspan="3">کل ارزش انبار</td><td data-label="ارزش موجودی">'+rial(val)+'</td><td></td></tr></tfoot></table>'
         : '<div class="empty">کالایی تعریف نشده است</div>');
     chartLabels=state.products.map(p=>p.name); chartVals=state.products.map(p=>p.stock*p.buy); chartColor='#2563eb';
   }
@@ -1442,6 +1528,24 @@ function renderReports(){
 }
 /* ---------- داشبورد ---------- */
 function sumInvoices(type, fn){ return state.invoices.filter(i=>i.type===type && fn(i)).reduce((s,i)=>s+i.total,0); }
+function dashGo(tab, filter){
+  showTab(tab);
+  if(tab==='invoices'){
+    const el = $('#invTypeFilter');
+    if(el){ el.value = filter||''; renderInvoices(); }
+  }
+}
+function invoiceLineHtml(inv){
+  const unpaid = inv.total - inv.paid;
+  return '<div class="inv-line" onclick="viewInvoice('+inv.id+')">'+
+    '<span class="il-badge '+(inv.type==='sale'?'il-blue':'il-amber')+'">'+(inv.type==='sale'?'فروش':'خرید')+'</span>'+
+    '<span class="il-num">#'+faDig(inv.id)+'</span>'+
+    '<span class="il-party">'+esc(partyName(inv.partyId))+'</span>'+
+    '<span class="il-date">'+faDate(inv.date)+'</span>'+
+    '<span class="il-amt">'+rial(inv.total)+'</span>'+
+    '<span class="il-dot '+(unpaid>0?'amber':'green')+'" title="'+(unpaid>0?'مانده دارد':'تسویه')+'"></span>'+
+    '</div>';
+}
 function renderDash(){
   const todayS = todayJ(), monthS = jMonthKey(todayS);
   const salesToday = sumInvoices('sale', i=>i.date===todayS);
@@ -1451,22 +1555,20 @@ function renderDash(){
   const pay = state.invoices.filter(i=>i.type==='purchase').reduce((s,i)=>s+i.total-i.paid,0);
   const low = state.products.filter(p=>p.stock<p.minStock).length;
   const cards = [
-    [''+icon('target')+'','فروش امروز', rial(salesToday), faDig(state.invoices.filter(i=>i.type==='sale'&&i.date===todayS).length)+' فاکتور','#eff6ff'],
-    [''+icon('trendUp')+'','فروش ماه جاری', rial(salesMonth),'','#dcfce7'],
-    [''+icon('cart')+'','خرید ماه جاری', rial(buyMonth),'','#fef3c7'],
-    [''+icon('cash')+'','مانده صندوق', rial(cashBalance()),'','#e0f2fe'],
-    [''+icon('receipt')+'','دریافتنی (مشتریان)', rial(recv),'','#fee2e2'],
-    [''+icon('card')+'','پرداختنی (تأمین‌کنندگان)', rial(pay),'','#f3e8ff'],
-    [''+icon('alert')+'','کالاهای کم‌موجود', faDig(low),'','#ffedd5'],
-    [''+icon('users')+'','طرف حساب‌ها', faDig(state.parties.length), faDig(state.products.length)+' کالا','#ecfdf5']
+    [''+icon('target')+'','فروش امروز', rial(salesToday), faDig(state.invoices.filter(i=>i.type==='sale'&&i.date===todayS).length)+' فاکتور','tint-blue',"dashGo('invoices','sale')"],
+    [''+icon('trendUp')+'','فروش ماه جاری', rial(salesMonth),'','tint-green',"dashGo('invoices','sale')"],
+    [''+icon('cart')+'','خرید ماه جاری', rial(buyMonth),'','tint-amber',"dashGo('invoices','purchase')"],
+    [''+icon('cash')+'','مانده صندوق', rial(cashBalance()),'','tint-cyan',"dashGo('cash')"],
+    [''+icon('receipt')+'','دریافتنی (مشتریان)', rial(recv),'','tint-red',"dashGo('parties')"],
+    [''+icon('card')+'','پرداختنی (تأمین‌کنندگان)', rial(pay),'','tint-purple',"dashGo('parties')"],
+    [''+icon('alert')+'','کالاهای کم‌موجود', faDig(low),'','tint-orange',"dashGo('products')"],
+    [''+icon('users')+'','طرف حساب‌ها', faDig(state.parties.length), faDig(state.products.length)+' کالا','tint-mint',"dashGo('parties')"]
   ];
   $('#dashCards').innerHTML = cards.map(c=>
-    '<div class="stat"><div class="st-ic" style="background:'+c[4]+'">'+c[0]+'</div><div><div class="st-l">'+c[1]+'</div><div class="st-v">'+c[2]+'</div>'+(c[3]?'<div class="st-s">'+c[3]+'</div>':'')+'</div></div>').join('');
+    '<div class="stat clickable" onclick="'+c[5]+'"><div class="st-ic '+c[4]+'">'+c[0]+'</div><div><div class="st-l">'+c[1]+'</div><div class="st-v">'+c[2]+'</div>'+(c[3]?'<div class="st-s">'+c[3]+'</div>':'')+'</div></div>').join('');
   const last = state.invoices.slice().sort((a,b)=>b.id-a.id).slice(0,5);
   $('#dashInvoices').innerHTML = last.length
-    ? '<table class="data"><thead><tr><th>شماره</th><th>نوع</th><th>تاریخ</th><th>طرف حساب</th><th>مبلغ</th><th>وضعیت</th></tr></thead><tbody>'+
-      last.map(i=>'<tr><td data-label="شماره">'+faDig(i.id)+'</td><td data-label="نوع">'+(i.type==='sale'?'<span class="badge badge-blue">فروش</span>':'<span class="badge badge-amber">خرید</span>')+'</td><td data-label="تاریخ">'+faDate(i.date)+'</td><td data-label="طرف حساب">'+esc(partyName(i.partyId))+'</td><td data-label="مبلغ">'+rial(i.total)+'</td><td data-label="وضعیت">'+(i.paid>=i.total?'<span class="badge badge-green">تسویه</span>':'<span class="badge badge-amber">مانده‌دار</span>')+'</td></tr>').join('')+
-      '</tbody></table>'
+    ? last.map(invoiceLineHtml).join('')
     : '<div class="empty">فاکتوری ثبت نشده است — از «فاکتور فروش» شروع کنید</div>';
   const lows = state.products.filter(p=>p.stock<p.minStock);
   $('#dashLow').innerHTML = lows.length
